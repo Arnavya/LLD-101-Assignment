@@ -6,6 +6,9 @@ public class driver {
         DatasetReader ds = new DatasetReader();
 
         List<Book> books = ds.loadBooks("/Users/arnavya/Desktop/LLD/Kshitij/Library_Management/src/amazon-books.csv");
+        for(Book book : books) {
+            book.printDetails();
+        }
 
         Service service = new Service(books);
 
