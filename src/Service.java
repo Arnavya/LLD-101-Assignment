@@ -2,10 +2,10 @@ import java.util.*;
 
 public class Service {
     List<Book> books;
-    HashMap<String, HashSet<Book>> map;
+    HashMap<String, List<Book>> map;
     public Service(List<Book> books) {
-        books = books;
-        map = new HashMap<>();
+        this.books = books;
+        this.map = new HashMap<>();
         Collections.sort(books, new Comparator<Book>() {
             @Override
             public int compare(Book o1, Book o2) {
@@ -20,7 +20,7 @@ public class Service {
             String author = book.getAuthor();
             if(map.containsKey(author)) map.get(author).add(book);
             else{
-                map.put(author, new HashSet<>());
+                map.put(author, new ArrayList<>());
                 map.get(author).add(book);
             }
         }
